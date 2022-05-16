@@ -1,0 +1,478 @@
+pcall(require, "impatient")
+
+require("main").init()
+
+-- vim.keymap.set("n", "<LEADER>qq", ":cclose<CR>", { silent = true, noremap = true})
+--     vim.keymap.set("n", keys, cmd, { noremap = true })
+-- vim.keymap.set("n", "[a", ":previous<CR>", { silent = true, noremap = true })
+-- vim.keymap.set("n", "]a", ":next<CR>", { silent = true, noremap = true })
+-- vim.keymap.set("n", "[A", ":first<CR>", { silent = true, noremap = true })
+-- vim.keymap.set("n", "]A", ":last<CR>", { silent = true, noremap = true })
+-- vim.keymap.set("n", "[b", ":bprev<CR>", { silent = true, noremap = true })
+-- vim.keymap.set("n", "]b", ":bnext<CR>", { silent = true, noremap = true })
+-- vim.keymap.set("n", "[l", ":lprevious<CR>", { silent = true, noremap = true })
+-- vim.keymap.set("n", "]l", ":lnext<CR>", { silent = true, noremap = true })
+-- vim.keymap.set("n", "[L", ":lfirst<CR>", { silent = true, noremap = true })
+-- vim.keymap.set("n", "]L", ":llast<CR>", { silent = true, noremap = true })
+-- vim.keymap.set("n", "[q", ":cprevious<CR>", { silent = true, noremap = true })
+-- vim.keymap.set("n", "]q", ":cnext<CR>", { silent = true, noremap = true })
+-- vim.keymap.set("n", "[Q", ":cfirst<CR>", { silent = true, noremap = true })
+-- vim.keymap.set("n", "]Q", ":clast<CR>", { silent = true, noremap = true })
+-- vim.keymap.set("n", "]t", ":tabnext<CR>", { silent = true, noremap = true })
+-- vim.keymap.set("n", "[t", ":tabprev<CR>", { silent = true, noremap = true })
+-- vim.keymap.set("n", "-", ":edit %%<CR>", { silent = true })
+-- vim.keymap.set("n", "<LEADER>ff", telescope.find_files, { noremap = true })
+-- vim.keymap.set("n", "<LEADER>fg", telescope.live_grep, { noremap = true })
+-- vim.keymap.set("n", "<LEADER>fw", telescope.grep_string, { noremap = true })
+-- vim.keymap.set("n", "<LEADER>qg", grep_expression, { noremap = true })
+-- vim.keymap.set("n", "<LEADER>fb", telescope.buffers, { noremap = true })
+-- vim.keymap.set("n", "<BSLASH><BSLASH>", clear_search, { noremap = true })
+-- vim.keymap.set("n", "<LEADER>w", ":. StripWhitespace<CR>", { silent = true, noremap = true })
+-- vim.keymap.set("n", "<BSLASH>w", ":ToggleWhitespace<CR>:set list!<CR>", { silent = true, noremap = true })
+-- vim.keymap.set("n", "<BSLASH>s", ":set spell!<CR>", { silent = true, noremap = true })
+-- vim.keymap.set("n", "Y", "y$", { silent = true, noremap = true })
+-- vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv", { silent = true, noremap = true })
+-- vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv", { silent = true, noremap = true })
+-- vim.keymap.set("n", "<C-k>", ":m .-2<CR>==", { silent = true, noremap = true })
+-- vim.keymap.set("n", "<C-j>", ":m .+1<CR>==", { silent = true, noremap = true })
+-- vim.keymap.set("n", "<LEADER>gb", ":Git blame<CR>", { silent = true, noremap = true })
+-- vim.keymap.set("n", "<LEADER>gd", ":SignifyDiff<CR>", { silent = true, noremap = true })
+-- vim.keymap.set("n", "<LEADER>gc", ":Git difftool<CR>", { silent = true, noremap = true })
+-- vim.keymap.set("n", "<LEADER>gm", ":Git mergetool<CR>", { silent = true, noremap = true })
+-- vim.keymap.set("n", "<LEADER>hu", ":SignifyHunkUndo<CR>", { noremap = true })
+-- vim.keymap.set("n", "<LEADER>hd", ":SignifyHunkDiff<CR>", { noremap = true })
+-- vim.keymap.set("n", "[c", "<plug>(signify-prev-hunk)", { silent = true })
+-- vim.keymap.set("n", "]c", "<plug>(signify-next-hunk)", { silent = true })
+-- vim.keymap.set("n", "[C", "9999[h", { silent = true })
+-- vim.keymap.set("n", "]C", "9999]h", { silent = true })
+-- vim.keymap.set("o", "ic", "<plug>(signify-motion-inner-pending)", { silent = true  })
+-- vim.keymap.set("x", "ic", "<plug>(signify-motion-inner-visual)", { silent = true  })
+-- vim.keymap.set("o", "ac", "<plug>(signify-motion-outer-pending)", { silent = true  })
+-- vim.keymap.set("x", "ac", "<plug>(signify-motion-outer-visual)", { silent = true  })
+-- vim.keymap.set("i", "<C-SPACE>", function() vim.fn["compe#complete"]() end, { noremap = true })
+-- vim.keymap.set("i", "<CR>", "v:lua.escape_and_enter()", { expr = true, noremap = true })
+-- vim.keymap.set("i", "<TAB>", "v:lua.tab_complete()", { expr = true })
+-- vim.keymap.set("i", "<S-TAB>", "v:lua.s_tab_complete()", { expr = true })
+-- vim.keymap.set("s", "<TAB>", "v:lua.tab_complete()", { expr = true })
+-- vim.keymap.set("s", "<S-TAB>", "v:lua.s_tab_complete()", { expr = true })
+--     vim.keymap.set("n", "gd", lsp.buf.definition, { noremap = true })
+--     vim.keymap.set("n", "gD", lsp.buf.declaration, { noremap = true })
+--     vim.keymap.set("n", "gt", lsp.buf.type_definition, { noremap = true })
+--     vim.keymap.set("n", "gi", lsp.buf.implementation, { noremap = true })
+--     vim.keymap.set("n", "gr", lsp.buf.references, { noremap = true })
+--     vim.keymap.set("n", "<LEADER>fo", telescope.lsp_document_symbols, { noremap = true })
+--     vim.keymap.set("n", "<LEADER>o", lsp.buf.document_symbol, { noremap = true })
+--     vim.keymap.set("n", "<LEADER>fs", telescope.lsp_workspace_symbols, { noremap = true })
+--     vim.keymap.set("n", "<LEADER>qs", lsp.buf.workspace_symbol, { noremap = true })
+--     vim.keymap.set("n", "<LEADER>=", lsp.buf.formatting, { noremap = true })
+--     vim.keymap.set("n", "<LEADER>qd", ":LspTroubleToggle<CR>", { noremap = true })
+--     vim.keymap.set("n", "<LEADER>d", lsp.diagnostic.show_line_diagnostics, { noremap = true })
+--     vim.keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<cr>", { silent = true, noremap = true })
+--     vim.keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<cr>", { silent = true, noremap = true })
+-- vim.keymap.set("t", "<ESC>", "<C-\\><C-n>", { noremap = true  })
+-- vim.keymap.set("t", "<A-[>", "<ESC>", { noremap = true  })
+-- vim.keymap.set("n", ";", ":", { noremap = true })
+--     vim.keymap.set("n", "<LEADER>aa", function() require("lspsaga.codeaction").code_action() end, { noremap = true })
+--     -- keymap.vnoremap { "<LEADER>a", function() require("lspsaga.codeaction").range_code_action() end }
+--     vim.keymap.set("n", "<LEADER>ar", function() require("lspsaga.rename").rename() end, { noremap = true })
+--     vim.keymap.set("n", "K", function() require("lspsaga.hover").render_hover_doc() end, { noremap = true })
+--     vim.keymap.set("n", "<C-k>", function() require("lspsaga.signaturehelp").signature_help() end, { noremap = true })
+--     -- vim.keymap.set("n", "[d", function() require("lspsaga.diagnostic").lsp_jump_diagnostic_prev() end, { noremap = true })
+--     -- vim.keymap.set("n", "]d", function() require("lspsaga.diagnostic").lsp_jump_diagnostic_next() end, { noremap = true })
+--     -- vim.keymap.set("n", "[d", function() require("trouble").previous({skip_groups = true, jump = true}) end, { noremap = true })
+--     -- vim.keymap.set("n", "]d", function() require("trouble").next({skip_groups = true, jump = true}) end, { noremap = true })
+
+-- vim.g.netrw_liststyle = 3
+-- vim.g.clever_f_across_no_line = 1
+-- vim.g.clever_f_smart_case = 1
+-- vim.g.clever_f_mark_direct = 1
+-- vim.g.better_whitespace_enabled = 0
+-- vim.g.strip_whitespace_on_save = 1
+-- vim.g.strip_only_modified_lines = 1
+-- vim.g.strip_whitelines_at_eof = 1
+-- vim.g.strip_whitespace_confirm = 0
+
+--                     [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true
+--                     [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+--         vim.fn.setqflist({}, "a", { title = "Diagnostics" })
+--         vim.fn.setqflist(qf_items, "r")
+--   if vim.fn.pumvisible() == 1 then
+--   if vim.fn.call("vsnip#jumpable", {-1}) == 1 then
+--   elseif vim.fn.call("vsnip#available", {1}) == 1 then
+--   if vim.fn.pumvisible() == 1 then
+--   grep(vim.fn.input("ripgrep: "))
+-- 		vim.fn.system(string.format('git clone %s %s', repo_url, install_path))
+-- 		vim.fn.mkdir(install_path, 'p')
+-- 			vim.fn.stdpath('data')
+-- 	if vim.fn.input("New install detected. Bootstrap plugins? (y/n) ") == "y" then
+
+
+
+-- packer.use("vim-airline/vim-airline")
+-- packer.use("ray-x/lsp_signature.nvim")
+-- packer.use("onsails/lspkind-nvim")
+-- packer.use("nvim-lua/lsp_extensions.nvim")
+-- packer.use("neovim/nvim-lspconfig")
+-- packer.use("tpope/vim-fugitive")
+-- packer.use("tomtom/tcomment_vim")
+-- packer.use("andymass/vim-matchup")
+-- packer.use("tpope/vim-surround")
+-- packer.use("tpope/vim-repeat")
+-- packer.use("kana/vim-textobj-entire")
+-- packer.use("kana/vim-textobj-user")
+-- packer.use("tpope/vim-characterize")
+-- packer.use("ntpeters/vim-better-whitespace")
+-- packer.use("rhysd/clever-f.vim")
+-- packer.use("nvim-telescope/telescope.nvim")
+-- packer.use("kyazdani42/nvim-web-devicons")
+-- -- packer.use("folke/lsp-colors.nvim")
+-- packer.use("folke/trouble.nvim")
+-- packer.use("folke/which-key.nvim")
+-- packer.use("nvim-lua/popup.nvim")
+-- packer.use("nvim-lua/plenary.nvim")
+--
+--
+-- -- require("lsp-status").register_progress()
+-- local packer = require("packer")
+-- local lspconfig = require("lspconfig")
+-- local packer = require("packer")
+--             { "CursorHold", "*", "lua require('lspsaga.diagnostic').show_line_diagnostics()" },
+--             -- { "CursorHold", "*", "lua require('lspsaga.signaturehelp').signature_help()" },
+--     -- local inlay_hints = 'lua require("lsp_extensions").inlay_hints { prefix = "", highlight = "Comment", enabled = { "TypeHint", "ParameterHint", "ChainingHint" } }'
+--     require("lsp_signature").on_attach()
+--     require("lspsaga").setup {
+--     local telescope = require("telescope.builtin")
+-- local lspconfig = require("lspconfig")
+-- -- local lsp_status = require("lsp-status")
+-- require("lspkind").init({})
+-- local packer = require("packer")
+-- require("compe").setup {
+-- local packer = require("packer")
+-- local packer = require("packer")
+-- local packer = require("packer")
+-- local telescope = require("telescope.builtin")
+-- local packer = require("packer")
+-- local packer = require("packer")
+-- require("colorizer").setup()
+-- local packer = require("packer")
+-- require("trouble").setup()
+-- require("which-key").setup()
+-- local packer_loaded, packer = pcall(require, "packer")
+-- if not pcall(require, 'packer') then
+--
+--
+--
+--
+--
+--
+--
+-- 		BOOTSTRAPPING = true
+-- 		local repo_url = 'https://github.com/wbthomason/packer.nvim'
+--
+-- 		local install_path = string.format(
+-- 			"%s/site/pack/packer/start/packer.nvim",
+-- 			)
+--
+-- 	end
+-- end
+--
+-- if not packer_loaded then return end
+--
+-- packer.init();
+--
+--
+--
+--
+--
+--
+--
+-- function CreateAutoGroup(name, autocmds)
+--     vim.cmd("augroup " .. name)
+--     vim.cmd("autocmd!")
+--
+--     for _, autocmd in ipairs(autocmds) do
+--         vim.cmd("autocmd " .. table.concat(autocmd, " "))
+--     end
+--
+--     vim.cmd("augroup END")
+-- end
+--
+-- function T(str)
+--     return vim.api.nvim_replace_termcodes(str, true, true, true)
+-- end
+--
+--
+--
+--
+--
+--
+--
+--
+-- for tab = 1, 10 do
+--     local subtbl = { tab = tab }
+--     local keys = string.gsub("<A-{tab}>", "{(%w+)}", subtbl)
+--     local cmd = string.gsub("{tab}gt", "{(%w+)}", subtbl)
+-- end
+--
+-- for _, direction in pairs({"h", "j", "k", "l"}) do
+--     local subtbl = { direction = direction }
+--     local focus_keys = string.gsub("<A-{direction}>", "{(%w+)}", subtbl)
+--     local focus_cmd = string.gsub("<C-w>{direction}", "{(%w+)}", subtbl)
+--     local move_keys = string.gsub("<A-S-{direction}>", "{(%w+)}", subtbl)
+--     local move_cmd = string.gsub("<C-w><S-{direction}>", "{(%w+)}", subtbl)
+-- end
+--
+--
+--
+--
+--
+--
+--
+-- local grep = function(text)
+--   vim.api.nvim_command("silent grep " .. text)
+--   vim.api.nvim_command("cwindow")
+-- end
+--
+-- local grep_expression = function()
+-- end
+--
+-- local clear_search = function()
+--   vim.api.nvim_feedkeys(T "<Plug>(clever-f-reset)", "x", true)
+--   vim.cmd("nohlsearch")
+-- end
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+-- CreateAutoGroup("formatting", {
+--     { "BufWritePre", "*.rs,*.js,*.html,*.css", "Autoformat" }
+-- })
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--   enabled = true;
+--   autocomplete = true;
+--   documentation = true;
+--   preselect = "always";
+--   source = {
+--     path = true;
+--     buffer = true;
+--     tags = true;
+--     spell = true;
+--     calc = true;
+--     vsnip = true;
+--     nvim_lua = true;
+--     nvim_lsp = true;
+--     nvim_treesitter = true;
+--   };
+-- }
+--
+-- _G.tab_complete = function()
+--     return vim.fn["compe#confirm"](T "<TAB>")
+--     return T "<Plug>(vsnip-expand-or-jump)"
+--   else
+--     return T "<TAB>"
+--   end
+-- end
+--
+-- _G.s_tab_complete = function()
+--     return T "<Plug>(vsnip-jump-prev)"
+--   else
+--     return T "<S-TAB>"
+--   end
+-- end
+--
+-- _G.escape_and_enter = function()
+--     return vim.fn["compe#close"]() .. vim.fn["lexima#expand"](T "<LT>CR>", "i")
+--   else
+--     return vim.fn["lexima#expand"](T "<LT>CR>", "i")
+--   end
+-- end
+--
+-- vim.fn["lexima#set_default_rules"]()
+-- vim.fn["lexima#insmode#map_hook"]("before", "<CR>", "")
+--
+--
+--
+--
+--
+--
+--
+--
+-- local workspace_diagnostics = function()
+--     local qf_items = {}
+--
+--     for bufnr, diagnostics in pairs(vim.lsp.diagnostic.get_all()) do
+--         for _, diagnostic in ipairs(diagnostics) do
+--             table.insert(qf_items, {
+--                     filename = vim.api.nvim_buf_get_name(bufnr),
+--                     lnum = diagnostic.range.start.line + 1,
+--                     col = diagnostic.range.start.character + 1,
+--                     text = diagnostic.message,
+--                     type = diagnostic.severity <= 1 and "E" or "W"
+--                 })
+--         end
+--     end
+--
+--     if next(qf_items) ~= nil then
+--         vim.api.nvim_command(":cwindow")
+--         vim.api.nvim_command(":cfirst")
+--     else
+--         print("No diagnostics")
+--     end
+-- end
+--
+-- local on_attach = function(client)
+--     local lsp = vim.lsp
+--
+--         code_action_prompt = {
+--             virtual_text = true,
+--             sign = false
+--         },
+--         code_action_keys = {
+--             quit = "<ESC>"
+--         },
+--         rename_action_keys = {
+--             quit = "<ESC>"
+--         }
+--     }
+--
+--     -- lsp_status.on_attach(client)
+--
+--
+--
+--
+--
+--
+--
+--     CreateAutoGroup("lsp", {
+--             -- { "CursorHold", "*", "lua vim.lsp.buf.document_highlight()" },
+--             -- { "CursorMoved", "*", "lua vim.lsp.buf.clear_references()" },
+--             -- { "CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost", "*", inlay_hints },
+--             -- { "BufWritePre", "*.rs", "lua vim.lsp.buf.formatting_sync(nil, 1000)" }
+--             { "BufWritePost", "Cargo.toml", "LspRestart" }
+--         })
+-- end
+--
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- -- capabilities = vim.tbl_extend("keep", capabilities, lsp_status.capabilities)
+-- capabilities.textDocument.completion.completionItem.snippetSupport = true
+--
+-- lspconfig.util.default_config = vim.tbl_extend(
+--     "force", lspconfig.util.default_config,
+--     {
+--         on_attach = on_attach,
+--         capabilities = capabilities,
+--         autostart = false
+--     }
+-- )
+--
+-- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+--     vim.lsp.diagnostic.on_publish_diagnostics, {
+--         -- signs = true,
+--         underline = true,
+--         virtual_text = false,
+--         update_in_insert = true,
+--     }
+-- )
+--
+--
+--
+--
+--
+--
+-- lspconfig.sumneko_lua.setup {
+--     cmd = {"lua-language-server"};
+--     settings = {
+--         Lua = {
+--             runtime = {
+--                 version = "LuaJIT",
+--                 path = vim.split(package.path, ";")
+--             },
+--             completion = {
+--                 keywordSnippet = "Disable"
+--             },
+--             diagnostics = {
+--                 enable = true,
+--                 globals = { "vim", "describe", "it", "before_each", "after_each" }
+--             },
+--             workspace = {
+--                 library = {
+--                 },
+--             },
+--         },
+--     },
+-- }
+--
+-- lspconfig.rust_analyzer.setup {
+--     settings = {
+--         ["rust-analyzer"] = {
+--             assist = {
+--                 importGroup = false,
+--                 importEnforceGranularity = true
+--             },
+--             -- diagnostics = {
+--             --     disabled = {
+--             --         "unresolved-proc-macro"
+--             --     }
+--             -- },
+--             checkOnSave = {
+--                 command = "clippy"
+--             },
+--             -- cargo = {
+--             --     loadOutDirsFromCheck = false
+--             -- },
+--             -- procMacro = {
+--             --     enable = false
+--             -- },
+--             -- inlayHints = {
+--             --     chainingHints = true,
+--             --     parameterHints = true,
+--             --     typeHints = true
+--             -- }
+--         }
+--     }
+-- }
+--
+-- lspconfig.solargraph.setup {
+--     settings = {
+--         solargraph = {
+--             diagnostics = false,
+--             completion = true
+--         }
+--     }
+-- }
+--
+--
+-- vim.api.nvim_exec("let g:airline#extensions#tabline#enabled = 1", false)
+--
+--
+--
+--
+--
