@@ -13,7 +13,7 @@ end
 
 function all_specs()
     return {
-        -- { "lewis6991/impatient.nvim" },
+        { "lewis6991/impatient.nvim" },
         { "nvim-lua/plenary.nvim" },
         { "sheerun/vim-polyglot" },
         { "folke/lsp-colors.nvim" },
