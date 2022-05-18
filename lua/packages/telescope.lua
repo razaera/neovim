@@ -23,16 +23,25 @@ function package.config()
         }
     }
 
-    require("which-key").register(
-        {
-            f = { builtin.find_files, "Search for [f]iles" },
-            g = { builtin.live_grep, "[G]rep the workspace" },
-            p = { builtin.grep_string, "Search for the [p]hrase under the cursor" },
-        },
-        {
-            prefix = "<LEADER>"
-        }
-    )
+    local which_key = require("which-key")
+
+    which_key.register({
+            ["<LEADER>f"] = {
+                name = "[F]ind",
+                b = { builtin.buffers, "Find a [b]uffer" },
+                c = { builtin.commands, "Find [c]ommands" },
+                f = { builtin.find_files, "Find [f]iles" },
+                g = { builtin.live_grep, "[G]rep the workspace" },
+                h = { builtin.help_tags, "Find [h]elp pages" },
+                j = { builtin.jumplist, "Find a [j]ump location" },
+                k = { builtin.keymaps, "Find a [k]eymap" },
+                l = { builtin.reloader, "Find [l]ua modules to reload" },
+                m = { builtin.man_pages, "Find a [m]an page" },
+                p = { builtin.grep_string, "Find the [p]hrase under the cursor" },
+                q = { builtin.quickfixhistory, "Find a recently used [q]uickfix lists" },
+                r = { builtin.resume, "[R]esume previous find" },
+            }
+        })
 end
 
 return package
