@@ -195,21 +195,6 @@ function package.config()
                 }
             }
         })
-
-    require("which-key").register({
-            ["<BSLASH><BSLASH>"] = {
-                ":Neotree filesystem reveal left<CR>",
-                "Open file explorer in sidebar",
-                silent = true,
-                noremap = true,
-            },
-            ["-"] = {
-                ":Neotree filesystem reveal current<CR>",
-                "Open file explorer in current window",
-                silent = true,
-                noremap = true,
-            },
-        })
 end
 
 return package
