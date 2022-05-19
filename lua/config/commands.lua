@@ -5,5 +5,5 @@ vim.api.nvim_create_user_command(
 )
 
 -- Causes :help or :h to be automatically changed to :Help
-vim.api.nvim_exec(":cabbrev help Help", false)
-vim.api.nvim_exec(":cabbrev h Help", false)
+-- vim.api.nvim_exec(":cabbrev help Help", false)
+-- vim.api.nvim_exec(":cabbrev h Help", false)
