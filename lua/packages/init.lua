@@ -24,6 +24,7 @@ function all_specs()
         spec("neo-tree"),
         spec("gruvbox"),
         spec("colorizer"),
+        spec("clever-f"),
         spec("telescope"),
     }
 end
