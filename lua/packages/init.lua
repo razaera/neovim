@@ -23,6 +23,7 @@ function all_specs()
         spec("colorizer"),
         spec("comment"),
         spec("dressing"),
+        spec("gitsigns"),
         spec("gruvbox"),
         spec("lualine"),
         spec("matchup"),
