@@ -1,5 +1,6 @@
 local package = {
     "nvim-neo-tree/neo-tree.nvim",
+    event = "VimEnter",
     requires = {
         "nvim-lua/plenary.nvim",
         "MunifTanjim/nui.nvim",
