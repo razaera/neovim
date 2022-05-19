@@ -1,3 +1,6 @@
-local package = { "tpope/vim-repeat" }
+local package = {
+    "tpope/vim-repeat",
+    event = "VimEnter",
+}
 
 return package

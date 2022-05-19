@@ -1,3 +1,6 @@
-local package = { "tpope/vim-characterize" }
+local package = {
+    "tpope/vim-characterize",
+    event = "VimEnter",
+}
 
 return package
