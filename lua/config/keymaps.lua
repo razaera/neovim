@@ -48,10 +48,11 @@ for _, direction in pairs({"h", "j", "k", "l"}) do
     local subtbl = { direction = direction }
     local focus_keys = string.gsub("<A-{direction}>", "{(%w+)}", subtbl)
     local focus_cmd = string.gsub("<C-\\><C-n><C-w>{direction}", "{(%w+)}", subtbl)
-    -- local move_keys = string.gsub("<A-S-{direction}>", "{(%w+)}", subtbl)
-    -- local move_cmd = string.gsub("<C-\\><C-n><C-w><S-{direction}>", "{(%w+)}", subtbl)
+    local move_keys = string.gsub("<A-S-{direction}>", "{(%w+)}", subtbl)
+    local move_cmd = string.gsub("<C-\\><C-n><C-w><S-{direction}>", "{(%w+)}", subtbl)
 
     vim.keymap.set("n", focus_keys, focus_cmd)
+    vim.keymap.set("n", move_keys, move_cmd)
 end
 
 vim.keymap.set("c", "%%", [[getcmdtype() == ':' ? expand('%:h').'/' : '%%']], { expr = true })
