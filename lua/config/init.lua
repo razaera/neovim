@@ -1,7 +1,7 @@
 local export = {}
 
 function export.init()
-    local modules = { "keymaps", "options" }
+    local modules = { "commands", "keymaps", "options" }
 
     for index, module_name in ipairs(modules) do
         ok, value = pcall(require, "config/" .. module_name)
