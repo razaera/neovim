@@ -4,6 +4,7 @@ vim.o.timeoutlen = 500
 -- vim.opt.ttimeoutlen = 500
 vim.o.lazyredraw = true
 
+vim.o.clipboard = 'unnamedplus'
 vim.o.history = 1000
 
 vim.o.scrolloff = 10
