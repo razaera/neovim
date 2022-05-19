@@ -7,8 +7,8 @@ local package = {
         "s1n7ax/nvim-window-picker",
     },
     after = {
-        "which-key.nvim"
-    },
+        "which-key"
+    }
 }
 
 function package.config()

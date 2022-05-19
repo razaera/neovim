@@ -1,4 +1,7 @@
-local package = { "folke/which-key.nvim" }
+local package = {
+    "folke/which-key.nvim",
+    as = "which-key",
+}
 
 function package.config()
     require("which-key").setup {

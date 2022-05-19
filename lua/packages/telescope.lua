@@ -4,7 +4,7 @@ local package = {
         "nvim-lua/plenary.nvim"
     },
     after = {
-        "which-key.nvim"
+        "which-key"
     }
 }
 
