@@ -13,26 +13,25 @@ end
 
 function all_specs()
     return {
-        { "andymass/vim-matchup" },
-        { "Julian/vim-textobj-variable-segment" },
-        { "kana/vim-textobj-entire" },
-        { "kana/vim-textobj-fold" },
-        { "kana/vim-textobj-indent" },
-        { "kana/vim-textobj-user" },
         { "lewis6991/impatient.nvim" },
         { "nvim-lua/plenary.nvim" },
-        { "tpope/vim-characterize" },
-        { "tpope/vim-repeat" },
-        { "tpope/vim-surround" },
 
-        spec("colorizer"),
+        spec("characterize"),
         spec("clever-f"),
+        spec("colorizer"),
         spec("gruvbox"),
+        spec("matchup"),
         spec("neo-tree"),
         spec("notify"),
         spec("packer"),
         spec("polyglot"),
+        spec("repeat"),
+        spec("surround"),
         spec("telescope"),
+        spec("textobj-entire"),
+        spec("textobj-fold"),
+        spec("textobj-indent"),
+        spec("textobj-segment"),
         spec("which-key"),
     }
 end
