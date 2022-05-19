@@ -1,5 +1,8 @@
-local package = { "morhetz/gruvbox" }
-
+local package = {
+    "ellisonleao/gruvbox.nvim",
+    event = "VimEnter",
+    as = "colorscheme",
+}
 
 function package.config()
     vim.g.gruvbox_bold = 1
