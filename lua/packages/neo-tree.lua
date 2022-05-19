@@ -121,7 +121,7 @@ function package.config()
                     ["p"] = "paste_from_clipboard",
                     ["c"] = "copy", -- takes text input for destination
                     ["m"] = "move", -- takes text input for destination
-                    ["<BSLASH>"] = "close_window",
+                    ["<BSLASH><BSLASH>"] = "close_window",
                     ["R"] = "refresh",
                     ["?"] = "show_help",
                 }
@@ -197,7 +197,7 @@ function package.config()
         })
 
     require("which-key").register({
-            ["<BSLASH>"] = {
+            ["<BSLASH><BSLASH>"] = {
                 ":Neotree filesystem reveal left<CR>",
                 "Open file explorer in sidebar",
                 silent = true,
