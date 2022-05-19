@@ -24,9 +24,7 @@ function package.config()
         }
     }
 
-    local which_key = require("which-key")
-
-    which_key.register({
+    require("which-key").register({
             ["<LEADER>f"] = {
                 name = "[F]ind",
                 b = { builtin.buffers, "Find a [b]uffer" },
@@ -40,7 +38,7 @@ function package.config()
                 m = { builtin.man_pages, "Find a [m]an page" },
                 p = { builtin.grep_string, "Find the [p]hrase under the cursor" },
                 q = { builtin.quickfixhistory, "Find a recently used [q]uickfix lists" },
-                r = { builtin.resume, "[R]esume previous find" },
+                r = { builtin.oldfiles, "Find a [r]ecently-opened file" },
             }
         })
 end
