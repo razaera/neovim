@@ -16,6 +16,8 @@ function all_specs()
         { "lewis6991/impatient.nvim" },
         { "nvim-lua/plenary.nvim" },
 
+        spec("bufdelete"),
+        spec("bufferline"),
         spec("characterize"),
         spec("clever-f"),
         spec("colorizer"),

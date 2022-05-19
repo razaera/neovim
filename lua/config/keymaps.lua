@@ -26,8 +26,8 @@ ns({
     ["]a"] = { ":next<CR>", "Go to the next arg" },
     ["[A"] = { ":first<CR>", "Go to the first arg" },
     ["]A"] = { ":last<CR>", "Go to the last arg" },
-    ["[b"] = { ":bprev<CR>", "Go to the previous buffer" },
-    ["]b"] = { ":bnext<CR>", "Go to the next buffer" },
+    ["[b"] = { ":BufferLineCyclePrev<CR>", "Go to the previous buffer" },
+    ["]b"] = { ":BufferLineCycleNext<CR>", "Go to the next buffer" },
     ["[l"] = { ":lprevious<CR>", "Go to the previous loclist item" },
     ["]l"] = { ":lnext<CR>", "Go to the next loclist item" },
     ["[L"] = { ":lfirst<CR>", "Go to the first loclist item" },
@@ -38,6 +38,23 @@ ns({
     ["]Q"] = { ":clast<CR>", "Go to the last quickfix list item" },
     ["[t"] = { ":tabprev<CR>", "Go to the previous tab" },
     ["]t"] = { ":tabnext<CR>", "Go to the next tab" },
+
+    ["<S-h>"] = { ":BufferLineCyclePrev<CR>", "Go to the previous buffer" },
+    ["<S-l>"] = { ":BufferLineCycleNext<CR>", "Go to the next buffer" },
+
+    ["<LEADER>b"] = {
+        name = "[B]uffers",
+        ["h"] = { ":BufferLineMovePrev<CR>", "Move current buffer to the left" },
+        ["l"] = { ":BufferLineMoveNext<CR>", "Move current buffer to the right" },
+        ["c"] = { ":Bdelete!<CR>", "[C]lose the current buffer" },
+        ["s"] = {
+            name = "[S]ort",
+            ["e"] = { ":BufferLineSortByExtension<CR>", "Sort buffers by file [e]xtension" },
+            ["d"] = { ":BufferLineSortByRelativeDirectory<CR>", "Sort buffers by [d]irectory" },
+        }
+    },
+
+    ["<BSLASH>q"] = { ":call QuickFixToggle()<CR>", "Toggle quickfix list visibility" },
 
     ["<ESC>"] = { clear_search, "Clear search highlights" },
 
