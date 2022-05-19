@@ -82,7 +82,6 @@ ns({
             ["d"] = { ":TroubleToggle workspace_diagnostics<CR>", "Toggle [d]iagnostic list visibility" },
         },
 
-
         ["-"] = { ":Neotree filesystem reveal current<CR>", "Open file explorer in current window" },
 
         ["<ESC>"] = { clear_search, "Clear search highlights" },
@@ -94,12 +93,17 @@ for _, direction in pairs({"h", "j", "k", "l"}) do
     local subtbl = { direction = direction }
     local focus_keys = string.gsub("<A-{direction}>", "{(%w+)}", subtbl)
     local focus_cmd = string.gsub("<C-\\><C-n><C-w>{direction}", "{(%w+)}", subtbl)
-    local move_keys = string.gsub("<A-S-{direction}>", "{(%w+)}", subtbl)
-    local move_cmd = string.gsub("<C-\\><C-n><C-w><S-{direction}>", "{(%w+)}", subtbl)
+    -- local move_keys = string.gsub("<A-S-{direction}>", "{(%w+)}", subtbl)
+    -- local move_cmd = string.gsub("<C-\\><C-n><C-w><S-{direction}>", "{(%w+)}", subtbl)
 
     vim.keymap.set("n", focus_keys, focus_cmd)
-    vim.keymap.set("n", move_keys, move_cmd)
+    -- vim.keymap.set("n", move_keys, move_cmd)
 end
+
+vim.keymap.set("n", "<A-S-h>", ":WinShift left<CR>", { noremap = true, silent = true})
+vim.keymap.set("n", "<A-S-l>", ":WinShift right<CR>", { noremap = true, silent = true})
+vim.keymap.set("n", "<A-S-j>", ":WinShift down<CR>", { noremap = true, silent = true})
+vim.keymap.set("n", "<A-S-k>", ":WinShift up<CR>", { noremap = true, silent = true})
 
 vim.keymap.set("c", "%%", [[getcmdtype() == ':' ? expand('%:h').'/' : '%%']], { expr = true })
 vim.keymap.set("n", "k", [[(v:count >= 5 ? "m'" . v:count : "") . "k"]], { expr = true, noremap = true })

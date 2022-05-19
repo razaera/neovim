@@ -21,6 +21,7 @@ function all_specs()
         spec("characterize"),
         spec("clever-f"),
         spec("colorizer"),
+        spec("comment"),
         spec("dressing"),
         spec("gruvbox"),
         spec("lualine"),
@@ -38,6 +39,7 @@ function all_specs()
         spec("textobj-segment"),
         spec("trouble"),
         spec("which-key"),
+        spec("winshift"),
     }
 end
 
