@@ -1,43 +1,33 @@
--- Sets the leader key to spacebar.
 vim.g.mapleader = " "
 
-vim.g.timeoutlen = 500
-vim.g.ttimeoutlen = 500
+vim.o.timeoutlen = 500
+-- vim.opt.ttimeoutlen = 500
+vim.o.lazyredraw = true
 
--- Sets command history size.
 vim.o.history = 1000
 
--- The minimum number of lines that can appear between the cursor and the edge of a window.
 vim.o.scrolloff = 10
+vim.o.wrap = true
+vim.wo.wrap = true
 
 vim.wo.number = true
 vim.wo.relativenumber = true
 vim.wo.signcolumn = "yes"
 
--- Allows buffers to be active without being visible in a window.
 vim.o.hidden = true
+vim.o.splitright = true
+vim.o.splitbelow = true
 
--- Defines the visual representation for whitespace and control characters.
 vim.o.listchars = [[tab:»\ ,space:·,trail:•]]
 
--- The number of spaces used to represent a tab character.
 vim.o.tabstop = 4
 vim.bo.tabstop = 4
-
--- The number of spaces that should be inserted when the <TAB> key is pressed.
 vim.o.softtabstop = 4
 vim.bo.softtabstop = 4
-
--- The number of spaces used for indentation.
 vim.o.shiftwidth = 4
 vim.bo.shiftwidth = 4
-
--- Instructs the <TAB> key to insert spaces instead of tab characters.
 vim.o.expandtab = true
 vim.bo.expandtab = true
-
--- vim.o.splitright = true
--- vim.o.splitbelow = true
 
 vim.o.background = "light"
 vim.o.termguicolors = true
@@ -56,4 +46,3 @@ vim.wo.conceallevel = 2
 -- vim.o.foldmethod = "syntax"
 -- vim.wo.foldmethod = "syntax"
 vim.o.foldlevelstart = 99
-
