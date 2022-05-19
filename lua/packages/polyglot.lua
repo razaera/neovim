@@ -1,6 +1,6 @@
 local package = {
     "sheerun/vim-polyglot",
-    event = "VimEnter",
+    event = "UIEnter",
     after = "colorscheme",
 }
 

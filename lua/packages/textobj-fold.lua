@@ -1,6 +1,6 @@
 local package = {
     "kana/vim-textobj-fold",
-    event = "VimEnter",
+    event = "UIEnter",
     requires = { "kana/vim-textobj-user" },
 }
 

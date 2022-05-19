@@ -1,6 +1,6 @@
 local package = {
     "tpope/vim-characterize",
-    event = "VimEnter",
+    event = "UIEnter",
 }
 
 return package

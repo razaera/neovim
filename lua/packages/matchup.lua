@@ -1,6 +1,6 @@
 local package = {
     "andymass/vim-matchup",
-    event = "VimEnter",
+    event = "UIEnter",
 }
 
 return package

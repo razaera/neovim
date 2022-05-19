@@ -1,6 +1,6 @@
 local package = { 
     "Julian/vim-textobj-variable-segment",
-    event = "VimEnter",
+    event = "UIEnter",
     requires = { "kana/vim-textobj-user" },
 }
 

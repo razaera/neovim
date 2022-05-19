@@ -1,6 +1,6 @@
 local package = {
     "kana/vim-textobj-entire",
-    event = "VimEnter",
+    event = "UIEnter",
     requires = { "kana/vim-textobj-user" },
 }
 

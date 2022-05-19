@@ -1,6 +1,6 @@
 local package = {
     "kana/vim-textobj-indent",
-    event = "VimEnter",
+    event = "UIEnter",
     requires = { "kana/vim-textobj-user" },
 }
 

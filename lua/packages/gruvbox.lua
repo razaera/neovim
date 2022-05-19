@@ -1,6 +1,6 @@
 local package = {
     "ellisonleao/gruvbox.nvim",
-    event = "VimEnter",
+    event = "UIEnter",
     as = "colorscheme",
 }
 

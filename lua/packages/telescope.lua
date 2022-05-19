@@ -1,6 +1,6 @@
 local package = {
     "nvim-telescope/telescope.nvim",
-    event = "VimEnter",
+    event = "UIEnter",
     requires = {
         "nvim-lua/plenary.nvim"
     },

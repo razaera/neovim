@@ -1,6 +1,6 @@
 local package = {
     "norcalli/nvim-colorizer.lua",
-    event = "VimEnter",
+    event = "UIEnter",
     after = "colorscheme",
 }
 

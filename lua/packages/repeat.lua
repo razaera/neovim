@@ -1,6 +1,6 @@
 local package = {
     "tpope/vim-repeat",
-    event = "VimEnter",
+    event = "UIEnter",
 }
 
 return package

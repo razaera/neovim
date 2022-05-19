@@ -1,6 +1,6 @@
 local package = {
     "rhysd/clever-f.vim",
-    event = "VimEnter",
+    event = "UIEnter",
     after = "colorscheme",
 }
 
