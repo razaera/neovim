@@ -3,7 +3,7 @@ local package = {
     tag = "v2.*",
     requires = { "kyazdani42/nvim-web-devicons" },
     event = "UIEnter",
-    after = "colorscheme",
+    after = { "bufdelete.nvim", "colorscheme" },
 }
 
 function package.config()
@@ -11,8 +11,8 @@ function package.config()
         options = {
             mode = "buffers", -- set to "tabs" to only show tabpages instead
             numbers = "none",
-            close_command = "bdelete! %d",       -- can be a string | function, see "Mouse actions"
-            right_mouse_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
+            close_command = "Bdelete! %d",       -- can be a string | function, see "Mouse actions"
+            right_mouse_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
             left_mouse_command = "buffer %d",    -- can be a string | function, see "Mouse actions"
             middle_mouse_command = nil,          -- can be a string | function, see "Mouse actions"
             -- NOTE: this plugin is designed with this icon in mind,
@@ -72,7 +72,7 @@ function package.config()
             show_buffer_default_icon = true, -- whether or not an unrecognised filetype should show a default icon
             show_close_icon = false,
             show_tab_indicators = true,
-            persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
+            persist_buffer_sort = false, -- whether or not custom sorted buffers should persist
             -- can also be a table containing 2 custom separators
             -- [focused and unfocused]. eg: { '|', '|' }
             separator_style = "thin",
