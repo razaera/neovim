@@ -36,6 +36,7 @@ function all_specs()
         spec("textobj-fold"),
         spec("textobj-indent"),
         spec("textobj-segment"),
+        spec("trouble"),
         spec("which-key"),
     }
 end

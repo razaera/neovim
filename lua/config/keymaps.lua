@@ -1,5 +1,6 @@
 local which_key = require("which-key")
 local telescope = require("telescope.builtin")
+local trouble = require("trouble")
 
 function ns(spec)
     which_key.register(spec, { noremap = true, silent = true })
@@ -42,6 +43,8 @@ ns({
 
         ["<S-h>"] = { ":BufferLineCyclePrev<CR>", "Go to the previous buffer" },
         ["<S-l>"] = { ":BufferLineCycleNext<CR>", "Go to the next buffer" },
+        ["<S-j>"] = { function() trouble.next({skip_groups = true, jump = true}) end, "Go to next list item" },
+        ["<S-k>"] = { function() trouble.previous({skip_groups = true, jump = true}) end, "Go to previous list item" },
 
         ["<LEADER>f"] = {
             name = "[F]ind",
@@ -74,7 +77,9 @@ ns({
         ["<BSLASH>"] = {
             name = "Toggle windows",
             ["<BSLASH>"] = { ":Neotree filesystem reveal left<CR>", "Toggle file explorer in sidebar" },
-            ["q"] = { ":call QuickFixToggle()<CR>", "Toggle [q]uickfix list visibility" },
+            ["q"] = { ":TroubleToggle quickfix<CR>", "Toggle [q]uickfix list visibility" },
+            ["l"] = { ":TroubleToggle loclist<CR>", "Toggle [l]oc list visibility" },
+            ["d"] = { ":TroubleToggle workspace_diagnostics<CR>", "Toggle [d]iagnostic list visibility" },
         },
 
 

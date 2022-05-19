@@ -5,20 +5,24 @@ local package = {
         "nvim-lua/plenary.nvim"
     },
     after = {
-        "which-key"
+        "which-key",
+        "trouble.nvim",
     }
 }
 
 function package.config()
-    local telescope = require("telescope")
     local actions = require("telescope.actions")
-    local builtin = require("telescope.builtin")
+    local trouble = require("trouble")
 
-    telescope.setup {
+    require("telescope").setup {
         defaults = {
             mappings = {
                 i = {
-                    ["<ESC>"] = actions.close
+                    ["<ESC>"] = actions.close,
+                    ["<C-t>"] = trouble.open_with_trouble,
+                },
+                n = {
+                    ["<C-t>"] = trouble.open_with_trouble,
                 }
             }
         }
