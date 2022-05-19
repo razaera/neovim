@@ -19,10 +19,12 @@ function package.config()
             mappings = {
                 i = {
                     ["<ESC>"] = actions.close,
-                    ["<C-t>"] = trouble.open_with_trouble,
+                    ["<C-q>"] = actions.send_to_qflist,
+                    ["<M-q>"] = actions.send_selected_to_qflist,
                 },
                 n = {
-                    ["<C-t>"] = trouble.open_with_trouble,
+                    ["<C-q>"] = actions.send_to_qflist,
+                    ["<M-q>"] = actions.send_selected_to_qflist,
                 }
             }
         }
