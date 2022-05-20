@@ -39,6 +39,7 @@ function all_specs()
         spec("utilities/dressing"),
         spec("utilities/notify"),
         spec("utilities/repeat"),
+        spec("utilities/stabilize"),
         spec("utilities/surround"),
         spec("utilities/winshift"),
         spec("which-key", { as = "which-key" }),
