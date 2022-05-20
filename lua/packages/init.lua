@@ -35,6 +35,7 @@ function all_specs()
         spec("syntax/colorizer"),
         spec("syntax/comment"),
         spec("syntax/polyglot"),
+        spec("syntax/treesitter"),
         spec("utilities/characterize"),
         spec("utilities/dressing"),
         spec("utilities/notify"),
