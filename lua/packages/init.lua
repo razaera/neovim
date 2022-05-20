@@ -32,6 +32,7 @@ function all_specs()
         spec("objects/textobj-indent"),
         spec("objects/textobj-segment"),
         spec("packer"),
+        spec("syntax/autopairs"),
         spec("syntax/colorizer"),
         spec("syntax/comment"),
         spec("syntax/polyglot"),
