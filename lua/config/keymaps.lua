@@ -43,8 +43,8 @@ ns({
 
         ["<S-h>"] = { ":BufferLineCyclePrev<CR>", "Go to the previous buffer" },
         ["<S-l>"] = { ":BufferLineCycleNext<CR>", "Go to the next buffer" },
-        ["<S-j>"] = { function() trouble.next({skip_groups = true, jump = true}) end, "Go to next list item" },
-        ["<S-k>"] = { function() trouble.previous({skip_groups = true, jump = true}) end, "Go to previous list item" },
+        -- ["<S-j>"] = { function() trouble.next({skip_groups = true, jump = true}) end, "Go to next list item" },
+        -- ["<S-k>"] = { function() trouble.previous({skip_groups = true, jump = true}) end, "Go to previous list item" },
 
         ["<LEADER>f"] = {
             name = "[F]ind",
