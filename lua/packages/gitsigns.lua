@@ -1,6 +1,5 @@
 local package = {
     "lewis6991/gitsigns.nvim",
-    as = "vcs",
     event = "UIEnter",
 }
 

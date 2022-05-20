@@ -1,6 +1,6 @@
 local package = {
     "ellisonleao/gruvbox.nvim",
-    as = "colorscheme",
+    event = "VimEnter",
 }
 
 function package.config()
@@ -12,7 +12,7 @@ function package.config()
     vim.g.gruvbox_italicize_comments = 1
     vim.g.gruvbox_italicize_strings = 1
 
-    vim.api.nvim_exec("colorscheme gruvbox", false)
+    vim.cmd("colorscheme gruvbox")
 end
 
 return package

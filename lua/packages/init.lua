@@ -1,10 +1,10 @@
 local export = {}
 
-function spec(package_name)
+function spec(package_name, options)
     ok, value = pcall(require, "packages/" .. package_name)
 
     if ok then
-        return value
+        return vim.tbl_extend("force", value, options or {})
     else
         vim.notify(value, "error")
         return {}
@@ -16,6 +16,9 @@ function all_specs()
         { "lewis6991/impatient.nvim" },
         { "nvim-lua/plenary.nvim" },
 
+        spec("colorschemes/edge", { as = "colorscheme" }),
+        spec("colorschemes/gruvbox", { disable = true }),
+
         spec("bufdelete"),
         spec("bufferline"),
         spec("characterize"),
@@ -23,9 +26,8 @@ function all_specs()
         spec("colorizer"),
         spec("comment"),
         spec("dressing"),
-        spec("gitsigns"),
-        spec("gruvbox"),
-        spec("lualine"),
+        spec("gitsigns", { as = "vcs" }),
+        spec("lualine", { as = "statusline" }),
         spec("matchup"),
         spec("neo-tree"),
         spec("notify"),
@@ -39,7 +41,7 @@ function all_specs()
         spec("textobj-indent"),
         spec("textobj-segment"),
         spec("trouble"),
-        spec("which-key"),
+        spec("which-key", { as = "which-key" }),
         spec("winshift"),
     }
 end
