@@ -1,6 +1,6 @@
 vim.g.mapleader = " "
 
-vim.o.timeoutlen = 500
+vim.o.timeoutlen = 250
 -- vim.opt.ttimeoutlen = 500
 vim.o.lazyredraw = true
 
@@ -44,6 +44,6 @@ vim.g.vim_markdown_strikethrough = 1
 
 vim.o.conceallevel = 2
 vim.wo.conceallevel = 2
--- vim.o.foldmethod = "syntax"
--- vim.wo.foldmethod = "syntax"
+vim.o.foldmethod = "syntax"
+vim.wo.foldmethod = "syntax"
 vim.o.foldlevelstart = 99
