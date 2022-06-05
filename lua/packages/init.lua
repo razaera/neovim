@@ -18,8 +18,7 @@ function all_specs()
 
         spec("buffers/bufdelete"),
         spec("buffers/bufferline"),
-        spec("colorschemes/edge", { disable = true }),
-        spec("colorschemes/gruvbox", { as = "colorscheme" }),
+        spec("colorschemes/edge", { as = "colorscheme" }),
         spec("gitsigns", { as = "vcs" }),
         spec("lualine", { as = "statusline" }),
         spec("navigation/clever-f"),
