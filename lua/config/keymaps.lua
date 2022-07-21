@@ -1,6 +1,5 @@
 local which_key = require("which-key")
 local telescope = require("telescope.builtin")
-local trouble = require("trouble")
 
 function ns(spec)
     which_key.register(spec, { noremap = true, silent = true })
@@ -43,44 +42,46 @@ ns({
 
         ["<S-h>"] = { ":BufferLineCyclePrev<CR>", "Go to the previous buffer" },
         ["<S-l>"] = { ":BufferLineCycleNext<CR>", "Go to the next buffer" },
-        -- ["<S-j>"] = { function() trouble.next({skip_groups = true, jump = true}) end, "Go to next list item" },
-        -- ["<S-k>"] = { function() trouble.previous({skip_groups = true, jump = true}) end, "Go to previous list item" },
+
+        ["<LEADER>/"] = {
+            name = "Search",
+            ["/"] = { telescope.live_grep, "Search the workspace" },
+            w = { telescope.grep_string, "Search for the word under the cursor" },
+        },
 
         ["<LEADER>f"] = {
-            name = "[F]ind",
-            b = { telescope.buffers, "Find a [b]uffer" },
-            c = { telescope.commands, "Find [c]ommands" },
+            name = "Filesystem",
             f = { telescope.find_files, "Find [f]iles" },
-            g = { telescope.live_grep, "[G]rep the workspace" },
-            h = { telescope.help_tags, "Find [h]elp pages" },
-            j = { telescope.jumplist, "Find a [j]ump location" },
-            k = { telescope.keymaps, "Find a [k]eymap" },
-            l = { telescope.reloader, "Find [l]ua modules to reload" },
-            m = { telescope.man_pages, "Find a [m]an page" },
-            p = { telescope.grep_string, "Find the [p]hrase under the cursor" },
-            q = { telescope.quickfixhistory, "Find a recently used [q]uickfix lists" },
             r = { telescope.oldfiles, "Find a [r]ecently-opened file" },
         },
 
+        ["<LEADER>h"] = {
+            name = "Help",
+            h = { telescope.help_tags, "Search help pages" },
+            k = { telescope.keymaps, "Search key bindings" },
+            m = { telescope.man_pages, "Search man pages" },
+        },
+
         ["<LEADER>b"] = {
-            name = "[B]uffers",
-            ["h"] = { ":BufferLineMovePrev<CR>", "Move current buffer to the left" },
-            ["l"] = { ":BufferLineMoveNext<CR>", "Move current buffer to the right" },
-            ["c"] = { ":Bdelete!<CR>", "[C]lose the current buffer" },
-            ["s"] = {
+            name = "Buffers",
+            b = { telescope.buffers, "Search buffers" },
+            h = { ":BufferLineMovePrev<CR>", "Move current buffer to the left" },
+            l = { ":BufferLineMoveNext<CR>", "Move current buffer to the right" },
+            q = { ":Bdelete!<CR>", "Delete the current buffer" },
+            s = {
                 name = "[S]ort",
-                ["e"] = { ":BufferLineSortByExtension<CR>", "Sort buffers by file [e]xtension" },
-                ["d"] = { ":BufferLineSortByRelativeDirectory<CR>", "Sort buffers by [d]irectory" },
+                e = { ":BufferLineSortByExtension<CR>", "Sort buffers by file [e]xtension" },
+                d = { ":BufferLineSortByRelativeDirectory<CR>", "Sort buffers by [d]irectory" },
             }
         },
 
-        ["<BSLASH>"] = {
-            name = "Toggle windows",
-            ["<BSLASH>"] = { ":Neotree filesystem reveal left<CR>", "Toggle file explorer in sidebar" },
-            ["q"] = { ":TroubleToggle quickfix<CR>", "Toggle [q]uickfix list visibility" },
-            ["l"] = { ":TroubleToggle loclist<CR>", "Toggle [l]oc list visibility" },
-            ["d"] = { ":TroubleToggle workspace_diagnostics<CR>", "Toggle [d]iagnostic list visibility" },
-        },
+        -- ["<BSLASH>"] = {
+        --     name = "Toggle windows",
+        --     ["<BSLASH>"] = { ":Neotree filesystem reveal left<CR>", "Toggle file explorer in sidebar" },
+        --     ["q"] = { ":TroubleToggle quickfix<CR>", "Toggle [q]uickfix list visibility" },
+        --     ["l"] = { ":TroubleToggle loclist<CR>", "Toggle [l]oc list visibility" },
+        --     ["d"] = { ":TroubleToggle workspace_diagnostics<CR>", "Toggle [d]iagnostic list visibility" },
+        -- },
 
         ["-"] = { ":Neotree filesystem reveal current<CR>", "Open file explorer in current window" },
 
@@ -100,10 +101,10 @@ for _, direction in pairs({"h", "j", "k", "l"}) do
     -- vim.keymap.set("n", move_keys, move_cmd)
 end
 
-vim.keymap.set("n", "<A-S-h>", ":WinShift left<CR>", { noremap = true, silent = true})
-vim.keymap.set("n", "<A-S-l>", ":WinShift right<CR>", { noremap = true, silent = true})
-vim.keymap.set("n", "<A-S-j>", ":WinShift down<CR>", { noremap = true, silent = true})
-vim.keymap.set("n", "<A-S-k>", ":WinShift up<CR>", { noremap = true, silent = true})
+vim.keymap.set("n", "<A-S-h>", ":WinShift left<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<A-S-l>", ":WinShift right<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<A-S-j>", ":WinShift down<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<A-S-k>", ":WinShift up<CR>", { noremap = true, silent = true })
 
 vim.keymap.set("c", "%%", [[getcmdtype() == ':' ? expand('%:h').'/' : '%%']], { expr = true })
 vim.keymap.set("n", "k", [[(v:count >= 5 ? "m'" . v:count : "") . "k"]], { expr = true, noremap = true })

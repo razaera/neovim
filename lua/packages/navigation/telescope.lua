@@ -6,13 +6,11 @@ local package = {
     },
     after = {
         "which-key",
-        "trouble.nvim",
     }
 }
 
 function package.config()
     local actions = require("telescope.actions")
-    local trouble = require("trouble")
 
     require("telescope").setup {
         defaults = {
