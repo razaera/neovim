@@ -20,6 +20,7 @@ function all_specs()
         spec("buffers/bufferline"),
         spec("colorschemes/edge", { as = "colorscheme" }),
         spec("gitsigns", { as = "vcs" }),
+        spec("lsp/nvim-lspconfig"),
         spec("lualine", { as = "statusline" }),
         spec("navigation/clever-f"),
         spec("navigation/matchup"),
