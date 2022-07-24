@@ -1,15 +1,15 @@
 local which_key = require("which-key")
 local telescope = require("telescope.builtin")
 
-function ns(spec)
+local ns = function(spec)
     which_key.register(spec, { noremap = true, silent = true })
 end
 
-function t(str)
+local t = function(str)
     return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
 
-function clear_search()
+local clear_search = function()
     vim.api.nvim_feedkeys(t "<Plug>(clever-f-reset)", "x", true)
     vim.cmd("nohlsearch")
 end
@@ -33,15 +33,29 @@ ns({
         ["]l"] = { ":lnext<CR>", "Go to the next loclist item" },
         ["[L"] = { ":lfirst<CR>", "Go to the first loclist item" },
         ["]L"] = { ":llast<CR>", "Go to the last loclist item" },
-        ["[q"] = { ":cprevious<CR>", "Go to the previous quickfix list item" },
-        ["]q"] = { ":cnext<CR>", "Go to the next quickfix list item" },
-        ["[Q"] = { ":cfirst<CR>", "Go to the first quickfix list item" },
-        ["]Q"] = { ":clast<CR>", "Go to the last quickfix list item" },
+        ["[q"] = { ":cprevious<CR>", "Go to the previous quickfix item" },
+        ["]q"] = { ":cnext<CR>", "Go to the next quickfix item" },
+        ["[Q"] = { ":cfirst<CR>", "Go to the first quickfix item" },
+        ["]Q"] = { ":clast<CR>", "Go to the last quickfix item" },
         ["[t"] = { ":tabprev<CR>", "Go to the previous tab" },
         ["]t"] = { ":tabnext<CR>", "Go to the next tab" },
 
+        ["[d"] = { vim.diagnostic.goto_prev, "Go to previous diagnostic" },
+        ["]d"] = { vim.diagnostic.goto_next, "Go to next diagnostic" },
+
         ["<S-h>"] = { ":BufferLineCyclePrev<CR>", "Go to the previous buffer" },
         ["<S-l>"] = { ":BufferLineCycleNext<CR>", "Go to the next buffer" },
+
+        ["gd"] = { vim.lsp.buf.definition, "Go to definition" },
+        ["gr"] = { vim.lsp.buf.references, "Go to references" },
+        ["K"] = { vim.lsp.buf.hover, "Show hover information" },
+        ["<C-k>"] = { vim.lsp.buf.signature_help, "Show signature information" },
+
+        ["<LEADER>a"] = {
+            name = "Action",
+            a = { vim.lsp.buf.code_action, "LSP code actions" },
+            r = { vim.lsp.buf.rename, "Rename symbol under cursor" },
+        },
 
         ["<LEADER>/"] = {
             name = "Search",

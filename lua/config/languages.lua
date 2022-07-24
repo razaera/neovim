@@ -1,22 +1,6 @@
 local lspconfig = require("lspconfig")
 
-local on_attach = function(client)
-    local which_key = require("which-key")
-
-    which_key.register(
-        {
-            ["[d"] = { vim.diagnostic.goto_prev, "Go to previous diagnostic" },
-            ["]d"] = { vim.diagnostic.goto_next, "Go to next diagnostic" },
-        },
-        {
-            noremap = true,
-            silent = true
-        }
-    )
-end
-
 lspconfig.sumneko_lua.setup {
-    on_attach = on_attach,
     cmd = {"lua-language-server"};
     settings = {
         Lua = {
@@ -42,7 +26,6 @@ lspconfig.sumneko_lua.setup {
 }
 
 lspconfig.rust_analyzer.setup {
-    on_attach = on_attach,
     settings = {
         ["rust-analyzer"] = {
             assist = {
@@ -73,7 +56,6 @@ lspconfig.rust_analyzer.setup {
 }
 
 lspconfig.solargraph.setup {
-    on_attach = on_attach,
     settings = {
         solargraph = {
             diagnostics = true,
