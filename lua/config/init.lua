@@ -3,8 +3,8 @@ local export = {}
 function export.init()
     local modules = { "commands", "keymaps", "languages", "options" }
 
-    for index, module_name in ipairs(modules) do
-        ok, value = pcall(require, "config/" .. module_name)
+    for _, module_name in ipairs(modules) do
+        local ok, value = pcall(require, "config/" .. module_name)
 
         if ok then
             modules[module_name] = value
@@ -17,7 +17,7 @@ end
 function export.reload()
     local plenary = require("plenary")
 
-    ok, value = pcall(plenary.reload.reload_module, "config")
+    local ok, value = pcall(plenary.reload.reload_module, "config")
 
     if not ok then
         return error("Failed to reload config: " .. value)

@@ -3,17 +3,17 @@ local export = {}
 local packer_install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 local packer_repo_path = "https://github.com/wbthomason/packer.nvim"
 
-function bootstrap()
+local function bootstrap()
     vim.notify("Bootstrapping packages")
     vim.fn.system({ "git", "clone", "--depth", "1", packer_repo_path, packer_install_path })
     vim.cmd("packloadall")
 end
 
-function reload()
+local function reload()
     local config = require("config")
     local packages = require("packages")
 
-    ok, value = pcall(packages.reload)
+    local ok, value = pcall(packages.reload)
 
     if not ok then
         vim.notify(value, "error")
@@ -35,7 +35,7 @@ function export.init()
     local config = require("config")
     local packages = require("packages")
 
-    ok, value = pcall(packages.init, bootstrapping)
+    local ok, value = pcall(packages.init, bootstrapping)
 
     if not ok then
         vim.notify(value, "error")

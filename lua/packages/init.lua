@@ -1,7 +1,7 @@
 local export = {}
 
-function spec(package_name, options)
-    ok, value = pcall(require, "packages/" .. package_name)
+local function spec(package_name, options)
+    local ok, value = pcall(require, "packages/" .. package_name)
 
     if ok then
         return vim.tbl_extend("force", value, options or {})
@@ -11,7 +11,7 @@ function spec(package_name, options)
     end
 end
 
-function all_specs()
+local function all_specs()
     return {
         { "lewis6991/impatient.nvim" },
         { "nvim-lua/plenary.nvim" },
@@ -47,7 +47,7 @@ function all_specs()
 end
 
 function export.init(should_sync)
-    ok, value = pcall(require, "packer")
+    local ok, value = pcall(require, "packer")
 
     if not ok then
         return error("Failed to load packer: " .. value)
@@ -70,7 +70,7 @@ function export.reload()
     local packer = require("packer")
     local plenary = require("plenary")
 
-    ok, value = pcall(plenary.reload.reload_module, "packages")
+    local ok, value = pcall(plenary.reload.reload_module, "packages")
 
     if not ok then
         return error("Failed to reload packages: " .. value)
