@@ -13,6 +13,7 @@ vim.wo.wrap = true
 
 vim.wo.number = true
 vim.wo.relativenumber = true
+vim.wo.cursorline = true
 vim.wo.signcolumn = "yes"
 
 vim.o.hidden = true
