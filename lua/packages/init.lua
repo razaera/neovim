@@ -19,6 +19,7 @@ local function all_specs()
         spec("buffers/bufdelete"),
         spec("buffers/bufferline"),
         spec("colorschemes/edge", { as = "colorscheme" }),
+        spec("completion"),
         spec("gitsigns", { as = "vcs" }),
         spec("lsp/nvim-lspconfig"),
         spec("lualine", { as = "statusline" }),
